@@ -1,0 +1,172 @@
+:root {
+  color-scheme: light;
+  --ink: #23211d;
+  --muted: #6c655d;
+  --paper: #fffaf0;
+  --line: rgba(35, 33, 29, 0.16);
+  --accent: #d44d2e;
+  --accent-2: #247c7a;
+  --coffee: #6d4932;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(36, 124, 122, 0.16), transparent 28%),
+    linear-gradient(135deg, #fff7e8 0%, #eef7f5 48%, #ffe9df 100%);
+  color: var(--ink);
+  font-family:
+    "Microsoft YaHei",
+    "PingFang SC",
+    system-ui,
+    sans-serif;
+}
+
+button {
+  min-width: 108px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--ink);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(35, 33, 29, 0.18);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.game-shell {
+  width: min(100%, 980px);
+}
+
+.scorebar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.scorebar > div {
+  min-height: 72px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 240, 0.82);
+  backdrop-filter: blur(10px);
+}
+
+.scorebar span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.scorebar strong {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(24px, 5vw, 34px);
+  line-height: 1;
+}
+
+.stage-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(35, 33, 29, 0.2);
+  border-radius: 8px;
+  background: #fffdf8;
+  box-shadow: 0 24px 60px rgba(35, 33, 29, 0.18);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 90 / 62;
+  touch-action: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  background: rgba(255, 250, 240, 0.76);
+  backdrop-filter: blur(6px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay h1 {
+  margin: 0;
+  font-size: clamp(42px, 9vw, 88px);
+  line-height: 0.95;
+}
+
+.overlay p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.controls button:last-child {
+  background: var(--accent-2);
+}
+
+@media (max-width: 620px) {
+  body {
+    padding: 12px;
+  }
+
+  .scorebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scorebar > div {
+    min-height: 62px;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  button {
+    min-width: 0;
+  }
+}
