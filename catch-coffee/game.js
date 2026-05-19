@@ -11,7 +11,16 @@ const pauseBtn = document.querySelector("#pauseBtn");
 const restartBtn = document.querySelector("#restartBtn");
 
 const coffeeImage = new Image();
-coffeeImage.src = "cat-head-cutout.png";
+const coffeeImageSources = ["cat-head-cutout.png", "assets/cat-head-cutout.png"];
+let coffeeImageSourceIndex = 0;
+coffeeImage.src = coffeeImageSources[coffeeImageSourceIndex];
+
+coffeeImage.addEventListener("error", () => {
+  coffeeImageSourceIndex += 1;
+  if (coffeeImageSourceIndex < coffeeImageSources.length) {
+    coffeeImage.src = coffeeImageSources[coffeeImageSourceIndex];
+  }
+});
 
 const state = {
   running: false,
