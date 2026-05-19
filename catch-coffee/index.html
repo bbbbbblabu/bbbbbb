@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抓住咖啡！</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="scorebar" aria-label="游戏状态">
+        <div>
+          <span>得分</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span>连击</span>
+          <strong id="combo">0</strong>
+        </div>
+        <div>
+          <span>生命</span>
+          <strong id="lives">3</strong>
+        </div>
+        <div>
+          <span>时间</span>
+          <strong id="time">45</strong>
+        </div>
+      </section>
+
+      <section class="stage-wrap">
+        <canvas id="game" width="900" height="620" aria-label="抓住咖啡游戏画布"></canvas>
+        <div class="overlay" id="overlay">
+          <h1>抓住咖啡！</h1>
+          <p>移动杯子接住掉下来的猫猫头，避开苦味炸弹。</p>
+          <button id="startBtn" type="button">开始游戏</button>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="游戏操作">
+        <button id="pauseBtn" type="button" disabled>暂停</button>
+        <button id="restartBtn" type="button">重开</button>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
